@@ -1,0 +1,146 @@
+<?xml version="1.0"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>com.bosssoft.egov</groupId>
+    <artifactId>gov-asset-aims</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+  </parent>
+  <artifactId>gov-asset-aims-web</artifactId>
+  <packaging>war</packaging>
+  <name>gov-asset-aims-web Maven Webapp</name>
+  <url>http://maven.apache.org</url>
+  
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>3.8.1</version>
+      <scope>test</scope>
+    </dependency>
+
+	<!-- 平台组件依赖 -->
+		<dependency>
+			<groupId>com.bosssoft.platform.component</groupId>
+			<artifactId>com.bosssoft.platform.common</artifactId>
+			<version>${bosssoft.platform.component.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.bosssoft.platform.component</groupId>
+			<artifactId>com.bosssoft.platform.persistence</artifactId>
+			<version>${bosssoft.platform.component.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.bosssoft.platform.component</groupId>
+			<artifactId>com.bosssoft.platform.runtime</artifactId>
+			<version>${bosssoft.platform.component.version}</version>
+		</dependency>	
+		<dependency>
+			<groupId>com.bosssoft.platform.component</groupId>
+			<artifactId>com.bosssoft.platform.page</artifactId>
+			<version>${bosssoft.platform.component.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.bosssoft.platform.component</groupId>
+			<artifactId>com.bosssoft.platform.shiro</artifactId>
+			<version>${bosssoft.platform.component.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.bosssoft.platform.component</groupId>
+			<artifactId>com.bosssoft.platform.ui.tag</artifactId>
+			<version>${bosssoft.platform.component.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.bosssoft.platform.component</groupId>
+			<artifactId>com.bosssoft.platform.ui.web</artifactId>
+			<version>${bosssoft.platform.component.version}</version>
+			<type>war</type>
+		</dependency>
+
+		<!-- log4j依赖 -->
+		<dependency>
+		    <groupId>org.slf4j</groupId>
+		    <artifactId>slf4j-log4j12</artifactId>
+		    <version>${slf4j-log4j.version}</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>${log4j.version}</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.perf4j</groupId>
+			<artifactId>perf4j</artifactId>
+			<version>${perf4j.version}</version>
+		</dependency>
+
+		<!-- JDBC驱动依赖 -->		
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>${mysql.driver.version}</version>
+		</dependency>
+	    <dependency>
+			<groupId>com.oracle</groupId>
+			<artifactId>ojdbc6</artifactId>
+			<version>${oracle.driver.version}</version>
+        </dependency>
+
+		
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>druid</artifactId>
+			<version>${druid.version}</version>
+		</dependency>
+
+		
+		<!-- jstl标签依赖 -->
+		<dependency>
+			<groupId>jstl</groupId>
+			<artifactId>jstl</artifactId>
+			<version>${jstl.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>javax.el</groupId>
+			<artifactId>javax.el</artifactId>
+			<version>${javax.el.version}</version>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.eclipse.jetty.orbit</groupId>
+			<artifactId>javax.servlet.jsp</artifactId>
+			<version>${javax.servlet.jsp.version}</version>
+			<scope>provided</scope>
+		</dependency>
+		
+		<!-- aims项目工程依赖 -->
+		<dependency>
+			<groupId>com.bosssoft.egov</groupId>
+			<artifactId>gov-asset-aims-spi</artifactId>
+			<version>${egov.gov-asset-amis.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.bosssoft.egov</groupId>
+			<artifactId>gov-asset-aims-common</artifactId>
+			<version>${egov.gov-asset-amis.version}</version>
+		</dependency>
+  </dependencies>
+  <build>
+	  <plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>2.3.2</version>
+				<configuration>
+					<encoding>UTF-8</encoding>
+					<source>${java.src.version}</source>
+					<target>${java.target.version}</target>
+				</configuration>
+			</plugin>
+		</plugins>  
+    <finalName>gov-asset-aims-web</finalName>
+  </build>
+</project>

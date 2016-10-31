@@ -1,0 +1,708 @@
+
+@charset "utf-8";
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  vertical-align: baseline;
+  outline: none;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  font-family:'微软雅黑';
+}
+td{
+	vertical-align: middle;
+}
+
+html,body{
+    font: 100% 微软雅黑;
+    margin: 0; /* 最好将 body 元素的边距和填充设置为 0 以覆盖不同的浏览器默认值 */
+    padding: 0;
+	color:#434343;
+	font-family:Arial,微软雅黑;
+	line-height:20px; 
+	font-size:12px;
+	word-break:normal; 
+	background: #FFF;
+}
+
+html { 
+	height: 100%; 
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section { 
+	display: block; 
+}
+
+ol, ul { 
+	list-style: none; 
+}
+
+blockquote, q { 
+	quotes: none; 
+}
+
+blockquote:before, blockquote:after, q:before, q:after { 
+	content: ''; 
+	content: none; 
+}
+
+strong { 
+	font-weight: bold; 
+}
+
+img { 
+	border: 0; 
+	max-width: 100%; 
+}
+
+p { 
+	font-size: 1.2em; 
+	line-height: 1.0em; color: #333; 
+}
+ * {
+	margin:0; 
+	padding:0;
+}
+html {
+	color:#434343; 
+	background-color:#fff;
+}
+body{
+	color:#434343;
+	font-family:Arial,微软雅黑;
+	line-height:20px; 
+	font-size:12px;
+	height: 100%;
+	width: 100%; 
+	word-break:normal; 
+	background: #FFF;
+}
+a{
+	color:#434343; 
+	text-decoration:none; 
+	font-size:15px;
+}
+a:hover {
+	text-decoration:underline;
+}
+img {
+	border:0; 
+	vertical-align:middle;
+}
+li {
+	list-style:none;
+}
+.appframe-container{
+    width: 100%;
+    height: 100%;
+    margin: 0px auto;
+	position:relative;
+	overflow:hidden;
+}
+.appframe-header{
+	height: 43px;
+    background: #36a7df;
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+    clear: both;
+    z-index: 10;
+	position:absolute;
+	top:0px;
+	
+}
+
+
+.appframe-header .appframe-header-title{
+
+	color:#fff;
+	
+	width:230px;
+	height: 100%;
+	line-height: 43px;
+	font-size:18px;
+}
+
+
+.appframe-header .appframe-header-nav{
+	width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 5;
+    left: 230px;
+    top: 0px;
+    z-index: 1;
+}
+
+.appframe-header .appframe-header-toolbar{
+	position: absolute;
+    top: 0;
+    right: -2px;
+    display: inline-block;
+    height: 43px;
+    
+    z-index: 2;
+}
+.appframe-header .appframe-header-toolbar>ul{
+	
+}
+.appframe-header .appframe-header-toolbar>ul>li{
+	width:43px;
+	height:43px;
+	background-color: #2294d3;
+    float: left;
+    
+    }
+
+.appframe-header .appframe-header-toolbar>ul>li:hover{background-color:#4e4dab}
+
+
+.appframe-header-favoritemenu{
+	position: absolute;
+    top: 43px;
+    right: 7px;
+    padding-bottom: 30px;
+    max-height: 563px;
+    width: 244px;
+    background: #fff;
+    border: 1px solid #c5c5c5;
+    overflow: hidden;
+	display: none;
+}
+.appframe-header-favoritemenu-content{
+    display: block;
+    position: absolute;
+    bottom: 0;
+    width: 240px;
+    text-align: right;
+    text-align: right;
+    background: #fefefe;
+    height: 33px;
+    line-height: 33px;
+    padding-right: 12px;
+}
+
+.appframe-header-favoritemenu-content a {
+    line-height: 24px;
+    height: 24px;
+    float: right;
+    margin-top: 4px;
+    color: #aaa;
+}
+
+.appframe-main{
+	position: absolute;
+	top: 43px;
+	width: 100%;
+	bottom: 0;
+	height: auto;
+	_height: 100%;
+}
+.appframe-main-content{
+height: 100%;
+	position:absolute;
+	*position:absolute;
+	_position: relative;
+	left: 0;
+	right: 0px;
+}
+
+.navtabs{
+	
+	height:inherit;
+}
+.navtabs-content {
+    width: 99%;
+    height:100%;
+    margin: 5px auto 0 auto;
+    padding: 0px 2px;
+    text-align: center;
+    border-radius: 4px;
+    overflow: auto;
+    clear: both;
+    position: relative;
+    display: block;
+    border: 1px solid #cbcbcb;
+    position: relative;
+}
+.navtabs-footer {
+    height: 28px;
+    width: 99%;
+    text-align: center;
+    display: block;
+    height: 27px;
+    border-style: none;
+    border-width: 1px 1px 1px 1px;
+    background-position: 0 -450px;
+    background-repeat: repeat-x;
+    position: relative;
+    margin: 0 auto 0 auto;
+}
+.navtabs .navtabs-morelist {
+    display: none;
+    overflow-x: hidden;
+    overflow-y: auto;
+    width: 240px;
+    max-height: 380px;
+    padding: 2px;
+    border-style: solid;
+    border-width: 1px;
+    position: absolute;
+    bottom: 26px;
+    right: 7px;
+    z-index: 113;
+}
+.navtabs-morelist {
+    border-color: #b8d0d6;
+    background: #FFF;
+}
+.navtabs-tabarea {
+    margin-left: 12px;
+    margin-top: -1px;
+    position: relative;
+    overflow: hidden;
+    height: 27px;
+}
+.navtabs-tabs {
+    position: absolute;
+    display: block;
+    width: 10000px;
+    height: 27px;
+}
+.navtabs-footer .tabsleft {
+    background-position: 0 0;
+    top: 1px;
+    left: 0;
+    cursor: pointer;
+}
+.navtabs-footer .tabsright {
+    background-position: 0 -150px;
+    top: 1px;
+    right: 15px;
+    cursor: pointer;
+}
+.navtabs-footer [class^="tabs"] {
+    background: url(./images/navtab/tabscontrol.png) no-repeat;
+    display: block;
+    overflow: hidden;
+    width: 20px;
+    height: 23px;
+    text-indent: -1000px;
+    position: absolute;
+    z-index: 5;
+}
+.navtabs-footer .tabsmore {
+    background-position: 0 -300px;
+    top: 5px;
+    right: -2px;
+    cursor: pointer;
+}
+.navtabs-footer .tabsmore.hover {
+    background-position: 0 -350px;
+}
+.navtabs .navtabs-morelist li {
+    display: block;
+    overflow: hidden;
+    height: 36px;
+    line-height: 36px;
+}
+.navtabs .navtabs-morelist li.selected a {
+    text-indent: 20px;
+    font-weight: bold;
+    border-color: #dfe5ed;
+    background: #ffffc2 url(./images/menu2h.png) no-repeat 12px 13px;
+    text-align: left;
+}
+.navtabs .navtabs-morelist li a {
+    display: block;
+    height: 36px;
+    line-height: 36px;
+    padding: 0 10px;
+    border: solid 1px #FFF;
+    white-space: nowrap;
+    text-indent: 20px;
+    text-align: left;
+    background: url(./images/menu2l.png) no-repeat 12px 13px;
+}
+.navtabs-content .tabpage {
+    height: 100%;
+}
+.navtabs-tabs li.tab span {
+    line-height: 25px;
+}
+.navtabs-tabs li.tab {
+    background: url(images/navtab/unsel.png) repeat-x!important;
+    height: 26px;
+}
+.navtabs-tabs li.tab.selected {
+    background: url(images/navtab/sel.png) repeat-x!important;
+    font-weight: 600;
+}
+
+.navtabs-tabs li {
+    position: relative;
+    float: left;
+}
+.navtabs-tabs li.split-first {
+    background: url(images/navtab/tabfirst.png) no-repeat 0 0!important;
+    height: 26px;
+    width: 20px;
+}
+.navtabs-tabs li.split-first.lselect {
+    background: url(images/navtab/firstL.png) no-repeat left top!important;
+}
+.navtabs-tabs li.split-last.rselect {
+    background: url(images/navtab/lastR.png) no-repeat right top!important;
+}
+
+.navtabs-tabs li.split-last {
+    background: url(images/navtab/tabright.png) no-repeat right top!important;
+    width: 20px;
+    height: 26px;
+}
+.navtabs-footer .tabsmore.hover {
+    background-position: 0 -350px;
+}
+.navtabs-tabs li.split-center.lselect {
+    background: url(images/navtab/tableft_s.png) no-repeat 0 0!important;
+}
+
+.navtabs-tabs li.split-center {
+    background: url(images/navtab/tabright0.png) no-repeat -8px 0!important;
+    width: 24px;
+    height: 26px;
+}
+.navtabs-tabs li.tab .close {
+    background: url(images/navtab/tabcl.png) no-repeat!important;
+    display: block;
+    height: 16px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    right: -6px;
+    text-indent: -1000px;
+    top: 3px;
+    z-index: 78;
+    width: 16px;
+}
+navtabs-tabs li.split-center.lselect {
+    background: url(images/navtab/tableft_s.png) no-repeat 0 0!important;
+}
+.navtabs-tabs li.split-center {
+    background: url(images/navtab/tabright0.png) no-repeat -8px 0!important;
+    width: 24px;
+    height: 26px;
+}
+.navtabs-tabs li.split-center.rselect {
+    background: url(images/navtab/tabrights.png) no-repeat 0 0!important;
+}
+.navtabs-tabs li.split-center {
+    background: url(images/navtab/tabright0.png) no-repeat -8px 0!important;
+    width: 24px;
+    height: 26px;
+}
+.navtabs a {
+    color: #000;
+    text-decoration: none;
+}
+.navtabs-tabs  li.tab .close:hover{
+background:url(images/navtab/tabcloseH.png) no-repeat !important;	
+	display: block;
+    height: 16px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    right: -6px;
+    text-indent: -1000px;
+    top: 3px;
+    width: 16px;	
+    z-index:19;
+}
+
+/**菜单样式**/
+.sf-menu, .sf-menu * {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.sf-menu li {
+	position: relative;
+}
+
+.sf-menu ul {
+	position: absolute;
+	display: none;
+	top: 100%;
+	left: 0;
+	z-index: 99;
+}
+
+.sf-menu>li {
+	float: left;
+}
+
+.sf-menu li:hover>ul, .sf-menu li.sfHover>ul {
+	display: block;
+}
+
+.sf-menu a {
+	display: block;
+	position: relative;
+}
+
+.sf-menu ul ul {
+	top: 0;
+	left: 100%;
+}
+
+.sf-menu {
+	float: left;
+	margin-bottom: 1em;
+}
+
+.sf-menu ul {
+	box-shadow: 2px 2px 6px rgba(0, 0, 0, .2);
+	min-width: 12em; /* allow long menu items to determine submenu width */
+	*width: 12em;
+	/* no auto sub width for IE7, see white-space comment below */
+}
+
+.sf-menu a {
+	border-left: 1px solid #fff;
+	border-top: 1px solid #dFeEFF;
+	/* fallback colour must use full shorthand */
+	border-top: 1px solid rgba(255, 255, 255, .5);
+	padding: .75em 1em;
+	text-decoration: none;
+	zoom: 1; /* IE7 */
+}
+
+.sf-menu a {
+	color: #13a;
+}
+
+.sf-menu li {
+	background: #BDD2FF;
+	white-space: nowrap; /* no need for Supersubs plugin */
+	*white-space: normal; /* ...unless you support IE7 (let it wrap) */
+	-webkit-transition: background .2s;
+	transition: background .2s;
+}
+
+.sf-menu ul li {
+	background: #AABDE6;
+}
+
+.sf-menu ul ul li {
+	background: #9AAEDB;
+}
+
+.sf-menu li:hover, .sf-menu li.sfHover {
+	background: #CFDEFF;
+	/* only transition out, not in */
+	-webkit-transition: none;
+	transition: none;
+}
+
+/*** arrows (for all except IE7) **/
+.sf-arrows .sf-with-ul {
+	padding-right: 2.5em;
+	*padding-right: 1em; /* no CSS arrows for IE7 (lack pseudo-elements) */
+}
+/* styling for both css and generated arrows */
+.sf-arrows .sf-with-ul:after {
+	content: '';
+	position: absolute;
+	top: 50%;
+	right: 5px;
+	margin-top: -3px;
+	height: 0;
+	width: 0;
+	/* order of following 3 rules important for fallbacks to work */
+	border: 5px solid transparent;
+	border-top-color: #dFeEFF;
+	/* edit this to suit design (no rgba in IE8) */
+	border-top-color: rgba(255, 255, 255, .5);
+}
+
+.sf-arrows>li>.sf-with-ul:focus:after, .sf-arrows>li:hover>.sf-with-ul:after,
+	.sf-arrows>.sfHover>.sf-with-ul:after {
+	border-top-color: white; /* IE8 fallback colour */
+}
+/* styling for right-facing arrows */
+.sf-arrows ul .sf-with-ul:after {
+	margin-top: -5px;
+	margin-right: -3px;
+	border-color: transparent;
+	border-left-color: #000;
+	/* edit this to suit design (no rgba in IE8) */
+	border-left-color: rgba(0, 0, 0, .5);
+}
+
+.sf-arrows ul li>.sf-with-ul:focus:after, .sf-arrows ul li:hover>.sf-with-ul:after,
+	.sf-arrows ul .sfHover>.sf-with-ul:after {
+	border-left-color: #000;
+	/* edit this to suit design (no rgba in IE8) */
+}
+
+.menuAli {
+	width: auto !important;
+    display: block;
+    float: left;
+    height: 43px;
+    line-height: 43px;
+    margin-left: 1px;
+    background: url(./images/nav/navbg.jpg) no-repeat left bottom!important;
+}
+
+.menuA:hover{
+	background: #1869b8;
+	width: 100%;
+	height: 100%;
+	text-decoration: none;
+	display: block;
+	color: #fff;
+}
+
+li.menuAli a.link:hover,.sfHover a{
+	background: #1869b8;
+}
+
+
+li.menuAli a.link {
+	padding: 0px 20px 0px 10px;
+	border: none;
+	color: #fff;
+}
+.sub_nav  li a.link {
+		padding: 0px 25px 0px 35px;
+	
+}
+
+.header {
+	height: 44px;
+}
+
+.sf-menu {
+	margin-bottom: 0px;
+}
+
+.menuAli ul {
+	border: 1px solid #c5c5c5;
+	margin-top: 0px;
+	margin-left: -1px;
+	background: #fff;
+	margin-bottom: 3px
+}
+
+.menuAli ul li {
+	background: #fff !important;;
+}
+
+
+.menuAli ul li a, .menuAli ul li ul.sub_nav li ul.sub_nav,.menuAli ul.sub_nav li ul.sub_nav li  a{
+	padding-left: 38px;
+	text-align: left;
+	background: #fff url(./images/nav/menu2l.png) no-repeat 15px 12px!important;;
+	height: 35px;
+	line-height: 35px;
+	overflow: hidden;
+	margin-left: 1px;
+	font-size: 14px;
+	text-align: left;
+	color: #000 !important;
+	border-bottom: 1px solid #f2f2f2!important;
+}
+
+
+
+
+.menuAli ul li a:hover,.menuAli ul li.sfHover a,.menuAli ul.sub_nav li ul.sub_nav li  a:hover
+{
+	background: #f1f9fc url(./images/nav/menu2h.png) no-repeat 15px 12px!important;
+	color: #007be1;
+	margin-left: 1px;
+	border-bottom: 1px solid #f2f2f2;
+}
+
+
+
+
+.sub_nav .hover .add_favorite {
+	display:block;
+	
+	cursor: pointer;
+}
+/**菜单样式结束**/
+.ico-applogout {
+    background-image: url(./images/nav/logout.png);
+  
+}
+.ico-appuser {
+   background-image: url(./images/nav/user.png);
+   
+}
+.ico-appfavorite {
+       background-image: url(./images/nav/icon_favorite.png);
+   
+}
+.sub_nav .hover .ico-addfavorite {
+	display:block;
+	
+	cursor: pointer;
+}
+.ico-addfavorite {
+	display: none;
+	position: absolute;
+	width: 20px;
+	height: 20px;
+	right: 2px;
+	top: 7px;
+	background: url('./images/nav/fav.png') no-repeat left center
+}
+
+#_tabmask {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	z-index: 99999;
+	display: none;
+}
+
+#_tabmask .middle {
+	position: absolute !important;
+	top: 43px !important;
+	height: auto !important;
+	position: relative;
+	top: -43px;
+	height: 100%;
+	bottom: 35px;
+	width: 100%;
+	text-align: center;
+	overflow: auto;
+	padding: 6px 10px 0px 8px;
+}
+
+#_tabmask .middle .mask_bg {
+	width: 100%;
+	height: 100%;
+	background: #fff;
+}
+
+#_tabmask .top {
+	height: 43px;
+	width: 100%
+}
+
+#_tabmask .bottom {
+	position: absolute;
+	bottom: 0px;
+	width: 100%;
+	height: 35px;
+}

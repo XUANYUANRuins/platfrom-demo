@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+<!-- Licensed to the Apache Software Foundation (ASF) under one or more contributor 
+	license agreements. See the NOTICE file distributed with this work for additional 
+	information regarding copyright ownership. The ASF licenses this file to 
+	You under the Apache License, Version 2.0 (the "License"); you may not use 
+	this file except in compliance with the License. You may obtain a copy of 
+	the License at http://www.apache.org/licenses/LICENSE-2.0 Unless required 
+	by applicable law or agreed to in writing, software distributed under the 
+	License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS 
+	OF ANY KIND, either express or implied. See the License for the specific 
+	language governing permissions and limitations under the License. -->
+
+<log4j:configuration debug="false" 
+	xmlns:log4j="http://jakarta.apache.org/log4j/">
+
+	<!-- Here we use this default ConsoleAppender to log all messages, including 
+		Perf4J messages, to System.out. -->
+	<appender name="console" class="org.apache.log4j.ConsoleAppender">
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d - %-5p %x %l - %m%n" />
+		</layout>
+	</appender>
+
+	<appender name="FILE.INFO" class="org.apache.log4j.RollingFileAppender">
+		<param name="File" value="../../logs/appframe-info.log" />
+		<param name="MaxFileSize" value="30MB" />
+		<!-- <param name="DatePattern" value="'.'yyyy-MM-dd'.log'" /> -->
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%-4r %-5p %d{yyyy-MM-dd HH:mm:ss.SSS}  %l %m%n " />
+		</layout>
+
+	</appender>
+
+
+	<appender name="PERF" class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="File" value="../../logs/appframe-perf.log" />
+		<!-- <param name="DatePattern" value="'.'yyyy-MM-dd'.log'" /> -->
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%-5p %d{yyyy-MM-dd HH:mm:ss.SSS}  %l %m%n " />
+		</layout>
+	</appender>
+
+
+	<!-- Perf4J appenders -->
+	<!-- At a scheduled interval the StopWatch log messages that currently exist 
+		in the buffer are pulled to create a single GroupedTimingStatistics instance 
+		that is then sent to any attached appenders This AsyncCoalescingStatisticsAppender 
+		groups StopWatch log messages into GroupedTimingStatistics messages which 
+		it sends on the downstream appenders defined below -->
+	<appender name="CoalescingStatistics"
+		class="org.perf4j.log4j.AsyncCoalescingStatisticsAppender">
+		<!-- The TimeSlice option is used to determine the time window for which 
+			all received StopWatch logs are aggregated to create a single GroupedTimingStatistics 
+			log. Here we set it to 10 seconds, overriding the default of 30000 ms -->
+		<param name="TimeSlice" value="10000" />
+
+		<!-- <param name="RegisterShutdownHook" value="false" /> -->
+		<!-- The CreateRollupStatistics option is used to create "Rollup" tags 
+			based on the tag name. If you examine the tag value for the Profiled annotation 
+			on the PrimeNumberGenerator.generatePrime() method, you'll notice that it's 
+			value is "generatePrime.{$2}". The "{$2}" is expression language syntax that 
+			will expand to the value for the last argument to the method. Since that 
+			last argument can be any long value, we want to rollup all of those separate 
+			tags to a single higher level tag name, which is just "generatePrime". The 
+			CreateRollupStatistics option uses the period as a separator, and it then 
+			creates rollup tags for any tag names that share a common prefix. -->
+		<param name="CreateRollupStatistics" value="true" />
+		<!-- These first two appenders are used to create performance graphs -->
+		<appender-ref ref="graphExecutionTimes" />
+		<appender-ref ref="graphExecutionTPS" />
+		<!-- This JMX appender is used to expose performance metrics through JMX -->
+		<appender-ref ref="fileAppender" />
+		<appender-ref ref="graphsFileAppender" />
+		<!-- <appender-ref ref="perf4jJmxAppender"/> -->
+	</appender>
+
+
+	<!-- This first GraphingStatisticsAppender graphs Mean execution times for 
+		the tags specified -->
+	<appender name="graphExecutionTimes" class="org.perf4j.log4j.GraphingStatisticsAppender">
+		<!-- Possible GraphTypes are Mean, Min, Max, StdDev, Count and TPS -->
+		<param name="GraphType" value="Mean" />
+		<!-- The tags of the timed execution blocks to graph are specified here -->
+		<!-- <param name="TagNamesToGraph" value="com.bosssoft.ds.rest.repository.gateway,fullPageGeneration,generatePrime,randomFromRandomDotOrg"/> -->
+		<!-- <param name="RegisterShutdownHook" value="false" /> -->
+		<appender-ref ref="graphsFileAppender" />
+	</appender>
+
+	<!-- This second GraphingStatisticsAppender graphs transactions per second 
+		for the tags specified -->
+	<appender name="graphExecutionTPS" class="org.perf4j.log4j.GraphingStatisticsAppender">
+		<param name="GraphType" value="TPS" />
+		<appender-ref ref="graphsFileAppender" />
+	</appender>
+
+	<!-- This JMX appender creates an MBean and publishes it to the platform 
+		MBean server by default. -->
+
+	<!-- This file appender is used to output aggregated performance statistics 
+		in a format identical to that produced by the LogParser. -->
+	<appender name="fileAppender" class="org.apache.log4j.FileAppender">
+		<param name="File" value="../logs/perf_stats.log" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d %-5p [%t - %F:%L] %m%n" />
+		</layout>
+	</appender>
+
+	<!-- This file appender is used to output the graph URLs generated by the 
+		GraphingStatisticsAppenders -->
+	<appender name="graphsFileAppender" class="org.apache.log4j.FileAppender">
+		<param name="File" value="../../logs/appframe-dsg_perf_stats.out" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%m%n" />
+		</layout>
+	</appender>
+
+	<!-- <category name="rest_log" additivity="true"> <priority value="debug" 
+		/> <appender-ref ref="console.CONSOLE" /> <appender-ref ref="FILE.INFO" /> 
+		</category> -->
+
+	<!-- Loggers -->
+	<!-- The Perf4J logger. Note that org.perf4j.TimingLogger is the value of 
+		the org.perf4j.StopWatch.DEFAULT_LOGGER_NAME constant. Note that additivity 
+		is set to true here, which means logging messages will also be sent to parent 
+		loggers (e.g. the root logger and system.out). If you set this to false, 
+		timing statements are NOT sent to parent loggers. -->
+	<logger name="org.perf4j.TimingLogger" additivity="true">
+		<level value="ERROR" />
+		<appender-ref ref="CoalescingStatistics" />
+		<appender-ref ref="PERF" />
+	</logger>
+	<logger name="org.eclipse.jetty" additivity="true">
+		<level value="INFO" />
+	</logger>
+	<logger name="org.springframework.web.servlet" additivity="true">
+		<level value="INFO" />
+		<appender-ref ref="FILE.INFO" /> 
+	</logger>
+	<logger name="jndi" additivity="true">
+		<level value="ERROR" />
+	</logger>
+	<logger name="org.apache.ibatis.io.ResolverUtil" additivity="true">
+		<level value="INFO" />
+		<appender-ref ref="CoalescingStatistics" />
+		<appender-ref ref="PERF" />
+	</logger>
+	<logger name="com.bosssoft" additivity="true">
+		<level value="DEBUG" />
+		<appender-ref ref="FILE.INFO" /> 
+	</logger>
+	
+
+	<!-- The root logger sends all log statements EXCEPT those sent to the perf4j 
+		logger to System.out. -->
+	<root>
+		<level value="INFO" />
+		<appender-ref ref="console" />
+	    <appender-ref ref="FILE.INFO" /> 
+		<!-- <appender-ref ref="PERF" /> -->
+	</root>
+
+</log4j:configuration>

@@ -1,0 +1,65 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.bosssoft.egov</groupId>
+	<artifactId>gov-asset-aims</artifactId>
+	<packaging>pom</packaging>
+	<version>1.0.0-SNAPSHOT</version>
+	<name>gov-asset-aims Maven Webapp</name>
+	<url>http://maven.apache.org</url>
+
+	<properties>
+		<egov.gov-asset-amis.version>1.0.0-SNAPSHOT</egov.gov-asset-amis.version>
+		<platform.version>1.0.0-SNAPSHOT</platform.version>
+		<java.src.version>1.7</java.src.version>
+		<java.target.version>1.7</java.target.version>
+		<project.encoding>UTF-8</project.encoding>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<slf4j.version>1.7.9</slf4j.version>
+		<slf4j-log4j.version>1.7.13</slf4j-log4j.version>
+		<log4j.version>1.2.17</log4j.version>
+		<spring.version>4.3.2.RELEASE</spring.version>
+		<bosssoft.platform.component.version>1.0.0-SNAPSHOT</bosssoft.platform.component.version>
+		<druid.version>1.0.15</druid.version>
+		<mysql.driver.version>5.1.37</mysql.driver.version>
+		<oracle.driver.version>11.2.0.1.0</oracle.driver.version>
+		<commons.lang.version>2.6</commons.lang.version>
+		<commons.io.version>2.4</commons.io.version>
+		<mybatis.version>3.2.3</mybatis.version>
+		<mybatis-spring.version>1.2.1</mybatis-spring.version>
+		<perf4j.version>0.9.16</perf4j.version>
+		<jackson-core.version>2.8.3</jackson-core.version>
+		<jstl.version>1.2</jstl.version>
+		<javax.el.version>2.2.0.v201303151357</javax.el.version>
+		<javax.servlet.jsp.version>2.2.0.v201112011158</javax.servlet.jsp.version>		
+	</properties>
+	<modules>
+		<module>gov-asset-aims-api</module>
+		<module>gov-asset-aims-spi</module>
+		<module>gov-asset-aims-common</module>
+		<module>gov-asset-aims-web</module>
+	</modules>
+	
+	<dependencies>
+		<dependency>
+			<groupId>com.bosssoft.platform.component</groupId>
+    		<artifactId>com.bosssoft.platform.persistence</artifactId>
+			<version>${platform.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.bosssoft.platform.component</groupId>
+    		<artifactId>com.bosssoft.platform.page</artifactId>
+			<version>${platform.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.bosssoft.platform.component</groupId>
+    		<artifactId>com.bosssoft.platform.runtime</artifactId>
+			<version>${platform.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.bosssoft.platform.component</groupId>
+    		<artifactId>com.bosssoft.platform.common</artifactId>
+			<version>${platform.version}</version>
+		</dependency>
+	</dependencies>
+</project>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+  <context id="Oracle" targetRuntime="MyBatis3Simple" defaultModelType="flat">
+	<property name="javaFileEncoding" value="UTF-8"/>
+    <plugin type="com.bosssoft.platform.persistence.generator.MapperPlugin">
+      <property name="mappers" value="com.bosssoft.platform.persistence.common.Mapper"/>
+      <!-- caseSensitive默认false，当数据库表名区分大小写时，可以将该属性设置为true -->
+      <property name="caseSensitive" value="true"/>
+    </plugin>
+
+    <jdbcConnection driverClass="oracle.jdbc.driver.OracleDriver"
+                    connectionURL="jdbc:oracle:thin:@192.168.10.14:1521:orcl"
+                    userId="gxfs0613"
+                    password="bs">
+    </jdbcConnection>
+
+    <javaModelGenerator targetPackage="com.bosssoft.nontax.fundamental.data.model" targetProject="D:\software\eclipse-jee-neon\workspace\nontax-fundamental-sample\src\main\java">
+    	<!-- 
+    	<property name="rootClass" value="java.io.Serializable"/>
+    	<property name="rootInterface" value="java.io.Serializable"/>
+    	 -->
+    </javaModelGenerator>
+
+    <sqlMapGenerator targetPackage="mybatis"  targetProject="DD:\software\eclipse-jee-neon\workspace\nontax-fundamental-sample\src\main\resources"/>
+	
+	<javaClientGenerator targetPackage="com.bosssoft.nontax.fundamental.data.mapper" targetProject="D:\software\eclipse-jee-neon\workspace\nontax-fundamental-sample\src\main\java" type="XMLMAPPER" />
+
+    <table tableName="FAB%" >
+      <generatedKey column="id" sqlStatement="Oracle" identity="true"/>
+    </table>
+  </context>
+</generatorConfiguration>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.bosssoft.egov.aims.mapper.TPersonMapper" >
+  <resultMap id="tPersonMap" type="com.bosssoft.egov.aims.model.TPerson" >
+         <result property="id" column="ID" />
+	     <result property="name" column="NAME" />
+	 </resultMap>
+ 
+ <sql id="Base_Column_List">
+    ID,NAME  </sql>
+ 
+    <select id="queryTPersonPage" resultMap="tPersonMap">
+    	SELECT     
+    	<include refid="Base_Column_List" />
+        FROM T_PERSON
+      	 <trim prefix="where"  prefixOverrides="and |or">  
+	        <if test="searcher != null and searcher.__QUERYCON != null">  
+	            ${searcher.__QUERYCON}
+	        </if>  
+	    </trim>
+    </select>
+</mapper>

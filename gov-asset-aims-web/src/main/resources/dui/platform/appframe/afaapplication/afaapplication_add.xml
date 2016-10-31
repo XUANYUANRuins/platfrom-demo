@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>                       
+<Page id="afaApplicationPage" layout="border" 
+	templatePath="platform/appframe/afaapplication/afaapplication_add.jsp" 
+	js="resources/platform/js/appframe/afaapplication/afaapplication_add.js"
+	jsId="afaapplication_add" 
+	xmlns="http://www.bosssoft.org" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.bosssoft.org ../../../schema/uis/uitemplate-2.0.xsd">
+	<items>
+	   <Form  id="afaApplicationPage_form"  colCount="2"  layout="table" >
+		 <items>
+			<Row>
+			  <items>
+			    <FormItem id="appId" name="应用id"    editorType="TEXTBOX" />
+			    <FormItem id="appName" name="应用名称"    editorType="TEXTBOX" />
+              </items>
+			</Row>
+			<Row>
+			  <items>
+			    <FormItem id="appType" name="应用类型"    editorType="TEXTBOX" />
+			    <FormItem id="isOpen" name="是否启用"    editorType="TEXTBOX" />
+              </items>
+			</Row>
+			<Row>
+			  <items>
+			    <FormItem id="context" name="应用上下文"    editorType="TEXTBOX" />
+			    <FormItem id="ip" name="IP地址"    editorType="TEXTBOX" />
+              </items>
+			</Row>
+			<Row>
+			  <items>
+			    <FormItem id="port" name="端口"    editorType="TEXTBOX" />
+			    <FormItem id="protocol" name="协议"    editorType="TEXTBOX" />
+              </items>
+			</Row>
+			<Row>
+			  <items>
+			    <FormItem id="appDesc" name="应用描述"    editorType="TEXTBOX" />
+			    <FormItem id="tenantId" name="租户ID"    editorType="TEXTBOX" />
+			  </items>
+			</Row>
+			</items>
+		</Form>
+	</items>
+</Page>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Page id="afaApplicationPage" layout="border"
+	templatePath="platform/appframe/afaapplication/afaapplication_index.jsp"
+	js="resources/platform/js/appframe/afaapplication/afaapplication_index.js"
+	jsId="afaapplication_index" xmlns="http://www.bosssoft.org"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.bosssoft.org ../../../schema/uis/uitemplate-2.0.xsd">
+	<items>
+		<Panel id="afaApplicationPage_panel_top" region="north" height="35">
+			<items>
+				<ButtonArea id="mybtnarea" displayType="MENU">
+					<Button id="afaApplicationPage_btnAdd" name="新增" icon="btn-add"
+						iconMode="LEFT" />
+					<Button id="afaApplicationPage_btnQuery" name="查询" icon="btn-search"
+						iconMode="LEFT" />
+				</ButtonArea>
+				
+			</items>
+		</Panel>
+		<Panel id="afaApplicationPage_panel_bottom" region="center">
+			<items>
+				<XGrid id="afaApplicationPage_grid"
+					url="platform/appframe/afaapplication/queryAfaApplicationPage.do"
+					rownumbers="normal" autoLoad="false" fitColumns="ES" fit="true"
+					pager="down" pagelist="30,50,100">
+					<columns>
+						<XGridColumn field="appId" title="应用id" align="left" />
+						<XGridColumn field="appName" title="应用名称" align="left" />
+						<XGridColumn field="appType" title="应用类型" align="left" />
+						<XGridColumn field="isOpen" title="是否启用" align="left" />
+						<XGridColumn field="context" title="应用上下文" align="left" />
+						<XGridColumn field="ip" title="IP地址" align="left" />
+						<XGridColumn field="port" title="端口" align="left" />
+						<XGridColumn field="protocol" title="协议" align="left" />
+						<XGridColumn field="appDesc" title="应用描述" align="left" />
+						<XGridColumn field="tenantId" title="租户ID" align="left" />
+					</columns>
+					<frozenColumnsRight>
+					</frozenColumnsRight>
+				</XGrid>
+			</items>
+		</Panel>
+	</items>
+</Page>

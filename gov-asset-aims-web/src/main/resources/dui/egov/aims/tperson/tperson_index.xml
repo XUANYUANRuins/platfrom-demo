@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>                       
+<Page id="tPersonPage" layout="border" 
+	templatePath="egov/aims/tperson/tperson_index.jsp" 
+	js="resources/egov/js/aims/tperson/tperson_index.js"
+	jsId="tperson_index" 
+	xmlns="http://www.bosssoft.org" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.bosssoft.org ../../../schema/uis/uitemplate-2.0.xsd">
+	<items>
+		<Panel id="tPersonPage_panel_top" region="north"  height="35">
+		<items>
+				<ButtonArea id="mybtnarea" displayType="MENU">									
+	  <Button id="tPersonPage_btnAdd" name="新增"   icon="btn-add"  iconMode="LEFT"  />
+	  <Button id="tPersonPage_btnQuery" name="查询"   icon="btn-search"  iconMode="LEFT" />
+	</ButtonArea>			<Query id="tPersonPage_query" queryTarget="tPersonPage_grid" isAdvance="true" style="display:none;" manual="false" advColCount="2">
+							 <quicks>
+								<QueryItem id="id" field="ID" name="name" editorType="TEXTBOX"  />
+							</quicks> 
+				 <!--  <advances>
+						<QueryItem id="id" name="name" editorType="TEXTBOX"  />
+				  </advances> -->
+</Query>		</items>
+	</Panel>
+	<Panel id="tPersonPage_panel_bottom" region="center">
+		<items>
+			<XGrid id="tPersonPage_grid"  
+						url="egov/aims/tperson/queryTPersonPage.do"
+						rownumbers="normal"
+						autoLoad="false"
+						fitColumns="ES"
+						fit="true"
+						pager="down"
+						pagelist="30,50,100">
+					  <columns>					
+						<XGridColumn field="id" title="id"  align="left"     />
+						<XGridColumn field="name" title="name"  align="left"     />
+					</columns>
+					<frozenColumnsRight>
+					</frozenColumnsRight>
+				  </XGrid>		</items>
+	</Panel>	</items>
+</Page>
