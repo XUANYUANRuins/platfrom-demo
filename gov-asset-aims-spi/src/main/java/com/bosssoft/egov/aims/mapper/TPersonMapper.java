@@ -11,7 +11,7 @@ import com.bosssoft.egov.aims.model.TPerson;
 import com.bosssoft.platform.common.lang.data.Page;
 import com.bosssoft.platform.persistence.common.Mapper;
 import com.bosssoft.platform.persistence.entity.Searcher;
-import com.bosssoft.platform.runtime.BossException;
+import com.bosssoft.platform.runtime.exception.BusinessException;
 
 /**
  * 类说明:  Mapper接口（ Mapper层） .
@@ -39,7 +39,7 @@ public interface TPersonMapper extends Mapper<TPerson>{
 	 *
 	 */
 	public Page<TPerson> queryTPersonPage(@Param("searcher")Searcher searcher,@Param("page")Page<?> pageInfo)
-			throws BossException;
+			throws BusinessException;
 
 
 }

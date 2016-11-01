@@ -7,17 +7,18 @@
 package com.bosssoft.egov.aims.spi;
 
 import java.util.List;
-import com.bosssoft.egov.aims.model.TPerson;
-import com.bosssoft.platform.common.lang.data.Page;
-import com.bosssoft.platform.persistence.entity.Searcher;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 import com.bosssoft.egov.aims.api.TPersonService;
 import com.bosssoft.egov.aims.mapper.TPersonMapper;
-import com.bosssoft.platform.runtime.BossException;
+import com.bosssoft.egov.aims.model.TPerson;
+import com.bosssoft.platform.common.lang.data.Page;
+import com.bosssoft.platform.persistence.entity.Searcher;
+import com.bosssoft.platform.runtime.exception.BusinessException;
 
 
 /**
@@ -90,7 +91,7 @@ public class TPersonServiceImpl implements TPersonService {
 		try {
 			Page<TPerson> tp = tPersonMapper.queryTPersonPage(searcher, pageInfo);
 			return tp;
-		} catch (BossException e) {
+		} catch (BusinessException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
