@@ -1,4 +1,4 @@
-package com.bosssoft.platform.mainframe.controller;
+package com.bosssoft.platform.appframe.main.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

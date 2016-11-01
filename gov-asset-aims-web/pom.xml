@@ -43,11 +43,6 @@
 		</dependency>
 		<dependency>
 			<groupId>com.bosssoft.platform.component</groupId>
-			<artifactId>com.bosssoft.platform.shiro</artifactId>
-			<version>${bosssoft.platform.component.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>com.bosssoft.platform.component</groupId>
 			<artifactId>com.bosssoft.platform.ui.tag</artifactId>
 			<version>${bosssoft.platform.component.version}</version>
 		</dependency>

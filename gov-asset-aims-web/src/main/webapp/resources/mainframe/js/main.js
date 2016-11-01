@@ -43,10 +43,10 @@ require.config({
  */
 var History = window.History; // Note: We are using a capital H instead of a lower h
 var localeFile=(window.localeFile?window.localeFile:"app/widgets/app-lang_zh_CN");
-require(["app/core/app-jquery","app/core/app-core","base/dotpl-js","app/app-funcbase",
-		"app/widgets/layout/app-layout","app/util/app-utils","resources/mainframe/js/navmenu.js","resources/mainframe/js/navtab.js","app/widgets/window/app-dialog","app/core/app-register",
+require(["app/core/app-jquery","app/core/app-core","base/dotpl-js","app/app-funcbase","app/widgets/window/app-messager",
+		"app/util/app-utils","resources/mainframe/js/navmenu.js","resources/mainframe/js/navtab.js","app/widgets/window/app-dialog","app/core/app-register",
          "app/core/app-main","app/widgets/form/app-validate","base/template",
-         "app/util/app-xss-utils"], function ($,App,template,func,$messager,$utils,navmenu,navtab){
+         "app/util/app-xss-utils","app/widgets/layout/app-layout","app/core/app-main"], function ($,App,template,func,$messager,$utils,navmenu,navtab){
 	window.jQuery = $;
 	window.$=$;
 	$.browser = {};
